@@ -293,7 +293,8 @@ function removeRows(){
 document.querySelector('section').addEventListener('click',()=> {
    update()
 
-  const audio= new window.Audio('./tetrisaudio.mp3 ')
+  //const audio= new window.Audio('./tetrisaudio.mp3 ')
+  const audio= new window.Audio('./linea.wav')
   audio.volume=0.5
   audio.play()
 })

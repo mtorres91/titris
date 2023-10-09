@@ -12,6 +12,78 @@
     <canvas></canvas>
   </div>
     <strong>Puntuacion:<span></span></strong>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+          .cross {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 200px;
+              width: 200px;
+              position: relative;
+          }
+  
+          .line {
+              position: absolute;
+              background-color: black;
+          }
+  
+          .horizontal-line {
+              height: 10px;
+              width: 100px;
+          }
+  
+          .vertical-line {
+              height: 100px;
+              width: 10px;
+          }
+  
+          .top-button,
+          .bottom-button,
+          .left-button,
+          .right-button {
+              position: absolute;
+              background-color: #4CAF50;
+              color: white;
+              border: none;
+              padding: 10px 20px;
+              border-radius: 10px;
+              cursor: pointer;
+          }
+  
+          .top-button {
+              top: 50px;
+              left: 220px;
+          }
+  
+          .bottom-button {
+              bottom: 70px;
+              left: 40px;
+          }
+  
+          .left-button {
+              top: 50px;
+              left: -20px;
+          }
+  
+          .right-button {
+              top: 50px;
+              right: 50px;
+          }
+      </style>
+  </head>
+  
+  <body>
+      <div class="cross">
+        <button class="top-button" id="topBtn">R</button>
+        <button class="bottom-button" id="bottomBtn">↓</button>
+        <button class="left-button" id="leftBtn">←</button>
+        <button class="right-button" id="rightBtn">→</button>
+      </div>
+  </body>
+  
     
     <script type="module" src="/main.js"></script>
   </body>

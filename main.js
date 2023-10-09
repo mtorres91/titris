@@ -1,6 +1,11 @@
 import './style.css'
 import {BLOCK_SIZE,BOARD_WITH,BOARD_WEIHTH,EVENT_MOVEMENTS} from './const'
 
+const topButton = document.getElementById("topBtn");
+const bottomButton = document.getElementById("bottomBtn");
+const leftButton = document.getElementById("leftBtn");
+const rightButton = document.getElementById("rightBtn");
+
 
 const canvas = document.querySelector('canvas')
 const context = canvas.getContext('2d')
@@ -134,6 +139,52 @@ function draw(){
   $score.innerText = score
 }
 
+topButton.addEventListener("click", function() {
+  // Acción para el botón superior (↑)
+  const rotated = []
+     for ( let i=0; i<piece.shape[0].length; i++){
+      const row = []
+     for ( let j=piece.shape.length-1 ;j>=0 ; j--){
+      row.push(piece.shape[j][i])
+
+     }
+     rotated.push(row)
+    }
+    const previus = piece.shape
+    piece.shape = rotated
+    if(checkcollision()){
+      piece.shape=previus
+    }
+});
+
+bottomButton.addEventListener("click", function() {
+  // Acción para el botón inferior (↓)
+  piece.position.y++
+    if(checkcollision()){
+      piece.position.y--
+      solidifypiece()
+      removeRows()
+      console.log('colisionabajo')
+    }
+});
+
+leftButton.addEventListener("click", function() {
+  // Acción para el botón izquierdo (←)
+  piece.position.x--
+  if(checkcollision()){
+    piece.position.x++
+    console.log('colision')
+  }
+});
+
+rightButton.addEventListener("click", function() {
+  // Acción para el botón derecho (→)
+  piece.position.x++
+    if(checkcollision()){
+      piece.position.x--
+      console.log('colision')
+    }
+});
 
 
 document.addEventListener('keydown', event=>{
